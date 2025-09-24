@@ -8,7 +8,6 @@ import type { Movie } from "@/types";
 import MovieCard from "@/components/movies/MovieCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useSearchParams } from "next/navigation";
 import {
   Select,
   SelectContent,
@@ -22,24 +21,14 @@ import { languages } from "@/data/languages";
 type UpcomingType = "Movie" | "Web Series";
 
 export default function UpcomingPage() {
-  const searchParams = useSearchParams();
   const { toast } = useToast();
 
-  // Client-side state for initial type
-  const [initialType, setInitialType] = React.useState<UpcomingType>("Movie");
-
-  React.useEffect(() => {
-    const typeParam = (searchParams.get("type") as UpcomingType) || "Movie";
-    setInitialType(typeParam);
-    setActiveTab(typeParam);
-  }, [searchParams]);
-
+  const [activeTab, setActiveTab] = React.useState<UpcomingType>("Movie");
   const [content, setContent] = React.useState<Movie[]>([]);
   const [isLoading, setIsLoading] = React.useState(true);
   const [isLoadingMore, setIsLoadingMore] = React.useState(false);
   const [page, setPage] = React.useState(1);
   const [hasMore, setHasMore] = React.useState(true);
-  const [activeTab, setActiveTab] = React.useState<UpcomingType>(initialType);
   const [selectedLanguage, setSelectedLanguage] = React.useState("All");
 
   const fetchContent = React.useCallback(
@@ -97,17 +86,6 @@ export default function UpcomingPage() {
     fetchContent(activeTab, selectedLanguage, nextPage);
   };
 
-  const handleTabChange = (value: string) => {
-    const newType = value as UpcomingType;
-    if (newType !== activeTab) {
-      setActiveTab(newType);
-    }
-  };
-
-  const handleLanguageChange = (value: string) => {
-    setSelectedLanguage(value);
-  };
-
   return (
     <div className="space-y-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-4 gap-4">
@@ -117,7 +95,7 @@ export default function UpcomingPage() {
         <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
           <Tabs
             value={activeTab}
-            onValueChange={handleTabChange}
+            onValueChange={(val) => setActiveTab(val as UpcomingType)}
             className="w-full sm:w-auto"
           >
             <TabsList className="grid w-full grid-cols-2">
@@ -129,7 +107,11 @@ export default function UpcomingPage() {
               </TabsTrigger>
             </TabsList>
           </Tabs>
-          <Select value={selectedLanguage} onValueChange={handleLanguageChange}>
+
+          <Select
+            value={selectedLanguage}
+            onValueChange={(val) => setSelectedLanguage(val)}
+          >
             <SelectTrigger className="w-full sm:w-[180px]">
               <SelectValue placeholder="Filter by language" />
             </SelectTrigger>

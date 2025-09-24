@@ -1,0 +1,259 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: var(--font-plus-jakarta, "Plus Jakarta Sans"), system-ui,
+    sans-serif;
+}
+
+@layer base {
+  /* Default (Light) Theme Variables */
+  :root {
+    --background: 0 0% 100%; /* White #FFFFFF */
+    --foreground: 0 0% 13%; /* Dark Gray #222222 for text */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 13%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 13%;
+    --primary: 240 50% 39%; /* New Dark Blue */
+    --primary-foreground: 0 0% 98%; /* White text for contrast */
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 197 71% 62%; /* Sky Blue #87CEEB */
+    --accent-foreground: 0 0% 100%; /* White text on accent */
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 240 50% 39%; /* New Dark Blue for focus rings */
+    --chart-1: 197 71% 62%; /* Sky Blue */
+    --chart-2: 240 60% 70%; /* Lighter Lavender */
+    --chart-3: 197 50% 50%; /* Darker Sky Blue */
+    --chart-4: 240 50% 60%;
+    --chart-5: 197 40% 40%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 0 0% 13%;
+    --sidebar-primary: 240 50% 39%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 197 71% 62%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 89.8%;
+    --sidebar-ring: 240 50% 39%;
+    --radius: 0rem;
+  }
+
+  /* Dark Theme Variables */
+  .dark {
+    --background: 220 10% 10%; /* Very Dark Desaturated Blue #171A1C */
+    --foreground: 0 0% 95%; /* Lighter text for better readability */
+    --card: 220 10% 12%; /* Slightly Lighter Dark Blue/Grey #1A1E21 */
+    --card-foreground: 0 0% 95%;
+    --popover: 220 10% 12%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 240 50% 39%; /* New Dark Blue */
+    --primary-foreground: 0 0% 98%; /* White text for contrast */
+    --secondary: 220 9% 16%; /* Darker shade for secondary elements */
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 8% 15%; /* #212529 */
+    --muted-foreground: 0 0% 60%;
+    --accent: 51 100% 50%; /* Gold #FFD700 */
+    --accent-foreground: 0 0% 13%; /* Dark text on accent */
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 8% 20%; /* #2E3338 */
+    --input: 220 8% 20%;
+    --ring: 240 50% 39%; /* New Dark Blue for focus rings */
+    --chart-1: 51 100% 50%; /* Gold */
+    --chart-2: 271 80% 40%; /* Lighter Indigo */
+    --chart-3: 51 80% 40%; /* Darker Gold */
+    --chart-4: 271 60% 30%;
+    --chart-5: 51 60% 30%;
+
+    --sidebar-background: 220 12% 8%; /* Even Darker Blue/Grey #121417 */
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 240 50% 39%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 51 100% 50%;
+    --sidebar-accent-foreground: 0 0% 13%;
+    --sidebar-border: 220 8% 18%; /* #282C30 */
+    --sidebar-ring: 240 50% 39%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Button Styles Start */
+.custom-cinefolio-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 0.5em 1em 1em;
+  background-color: yellow;
+  color: black;
+  cursor: pointer;
+  box-shadow: 4px 6px 0px black;
+  border: 4px solid black;
+  border-radius: 15px; /* Specific radius for this button type */
+  position: relative;
+  overflow: hidden;
+  z-index: 10;
+  transition: box-shadow 250ms, transform 250ms, filter 50ms;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.custom-cinefolio-button:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 3px 0px black;
+}
+
+.custom-cinefolio-button:active {
+  filter: saturate(0.75);
+}
+
+.custom-cinefolio-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: pink;
+  z-index: -1;
+  transform: translateX(-101%);
+  transition: transform 250ms;
+}
+
+.custom-cinefolio-button:hover::after {
+  transform: translateX(0);
+}
+
+.custom-cinefolio-button .bgContainer {
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.custom-cinefolio-button .bgContainer span {
+  position: relative;
+  transform: translateX(-101%);
+  transition: all 250ms;
+  white-space: nowrap;
+  display: block;
+}
+
+.custom-cinefolio-button:hover .bgContainer > span {
+  transform: translateX(0);
+}
+
+.custom-cinefolio-button .arrowContainer {
+  padding: 0.5em;
+  margin-inline-start: 0.5em;
+  margin-inline-end: 0.5em;
+  border: 4px solid black;
+  border-radius: 50%;
+  background-color: pink;
+  position: relative;
+  overflow: hidden;
+  transition: transform 250ms, background-color 250ms;
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.custom-cinefolio-button .arrowContainer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-color: yellow;
+  transform: translateX(-101%);
+  z-index: -1;
+  transition: transform 250ms ease-in-out;
+}
+
+.custom-cinefolio-button:hover .arrowContainer::after {
+  transform: translateX(0);
+}
+
+.custom-cinefolio-button:hover .arrowContainer {
+  transform: translateX(5px);
+}
+
+.custom-cinefolio-button:active .arrowContainer {
+  transform: translateX(8px);
+}
+
+.custom-cinefolio-button .arrowContainer svg {
+  vertical-align: middle;
+  stroke: black;
+  display: block;
+}
+/* Custom Button Styles End */
+
+/* General Button Shadow Style */
+.general-button-shadow {
+  border-radius: var(--radius);
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(var(--border));
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15); /* Softened shadow */
+  transition: box-shadow 250ms ease-out, transform 250ms ease-out,
+    filter 50ms ease-out;
+}
+
+.general-button-shadow:hover {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.2);
+}
+
+.general-button-shadow:active {
+  filter: saturate(0.9);
+  transform: translate(1.5px, 1.5px);
+  box-shadow: none;
+}
+
+/* Ensure custom-cinefolio-button specific border and radius take precedence if both classes were hypothetically applied */
+.custom-cinefolio-button {
+  border-radius: 15px !important; /* Explicitly keep rounded for this special button */
+  border: 4px solid black !important;
+  box-shadow: 4px 6px 0px black !important;
+}
+.custom-cinefolio-button:hover {
+  transform: translate(2px, 2px) !important;
+  box-shadow: 2px 3px 0px black !important;
+}
+.custom-cinefolio-button:active {
+  filter: saturate(0.75) !important;
+  transform: translate(2px, 2px) !important;
+  box-shadow: none !important;
+}
+
+/* Custom Card Shadow Style */
+.custom-card-shadow {
+  border-radius: var(--radius); /* This will be 0rem for square corners */
+  border-width: 1px;
+  border-style: solid;
+  border-color: hsl(var(--border));
+  box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.15); /* Softened shadow */
+}
+
+/* Custom Badge Style */
+.custom-badge-style {
+  border-radius: 0px; /* Ensure badges are square */
+  border-width: 1px;
+  border-style: solid;
+  /* border-color will come from badgeVariants or override if needed */
+  box-shadow: 1px 1px 0px rgba(0, 0, 0, 0.1); /* Softened shadow */
+}

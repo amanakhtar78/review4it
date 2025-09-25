@@ -94,7 +94,7 @@ body {
 }
 
 /* Custom Button Styles Start */
-.custom-cinefolio-button {
+.custom-Review4it-button {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -114,16 +114,16 @@ body {
   text-decoration: none;
 }
 
-.custom-cinefolio-button:hover {
+.custom-Review4it-button:hover {
   transform: translate(2px, 2px);
   box-shadow: 2px 3px 0px black;
 }
 
-.custom-cinefolio-button:active {
+.custom-Review4it-button:active {
   filter: saturate(0.75);
 }
 
-.custom-cinefolio-button::after {
+.custom-Review4it-button::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -133,11 +133,11 @@ body {
   transition: transform 250ms;
 }
 
-.custom-cinefolio-button:hover::after {
+.custom-Review4it-button:hover::after {
   transform: translateX(0);
 }
 
-.custom-cinefolio-button .bgContainer {
+.custom-Review4it-button .bgContainer {
   position: relative;
   display: flex;
   justify-content: start;
@@ -146,7 +146,7 @@ body {
   flex-grow: 1;
 }
 
-.custom-cinefolio-button .bgContainer span {
+.custom-Review4it-button .bgContainer span {
   position: relative;
   transform: translateX(-101%);
   transition: all 250ms;
@@ -154,11 +154,11 @@ body {
   display: block;
 }
 
-.custom-cinefolio-button:hover .bgContainer > span {
+.custom-Review4it-button:hover .bgContainer > span {
   transform: translateX(0);
 }
 
-.custom-cinefolio-button .arrowContainer {
+.custom-Review4it-button .arrowContainer {
   padding: 0.5em;
   margin-inline-start: 0.5em;
   margin-inline-end: 0.5em;
@@ -172,7 +172,7 @@ body {
   flex-shrink: 0;
 }
 
-.custom-cinefolio-button .arrowContainer::after {
+.custom-Review4it-button .arrowContainer::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -183,19 +183,19 @@ body {
   transition: transform 250ms ease-in-out;
 }
 
-.custom-cinefolio-button:hover .arrowContainer::after {
+.custom-Review4it-button:hover .arrowContainer::after {
   transform: translateX(0);
 }
 
-.custom-cinefolio-button:hover .arrowContainer {
+.custom-Review4it-button:hover .arrowContainer {
   transform: translateX(5px);
 }
 
-.custom-cinefolio-button:active .arrowContainer {
+.custom-Review4it-button:active .arrowContainer {
   transform: translateX(8px);
 }
 
-.custom-cinefolio-button .arrowContainer svg {
+.custom-Review4it-button .arrowContainer svg {
   vertical-align: middle;
   stroke: black;
   display: block;
@@ -224,17 +224,17 @@ body {
   box-shadow: none;
 }
 
-/* Ensure custom-cinefolio-button specific border and radius take precedence if both classes were hypothetically applied */
-.custom-cinefolio-button {
+/* Ensure custom-Review4it-button specific border and radius take precedence if both classes were hypothetically applied */
+.custom-Review4it-button {
   border-radius: 15px !important; /* Explicitly keep rounded for this special button */
   border: 4px solid black !important;
   box-shadow: 4px 6px 0px black !important;
 }
-.custom-cinefolio-button:hover {
+.custom-Review4it-button:hover {
   transform: translate(2px, 2px) !important;
   box-shadow: 2px 3px 0px black !important;
 }
-.custom-cinefolio-button:active {
+.custom-Review4it-button:active {
   filter: saturate(0.75) !important;
   transform: translate(2px, 2px) !important;
   box-shadow: none !important;

@@ -395,7 +395,7 @@ export default function QuizPopup({
       <Dialog open={isLoginDialogOpen} onOpenChange={setIsLoginDialogOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Join Cinefolio to Continue!</DialogTitle>
+            <DialogTitle>Join Review4it to Continue!</DialogTitle>
             <DialogDescription>
               Please log in to save your progress and earn points.
             </DialogDescription>

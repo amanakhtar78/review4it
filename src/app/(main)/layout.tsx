@@ -14,6 +14,8 @@ import {
 } from "@/context/UserActionsContext";
 import QuizPopup from "@/components/movies/QuizPopup";
 import { isToday } from "date-fns";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 // Since we need context, we'll create a new component to handle the logic.
 const MainContent = ({ children }: { children: React.ReactNode }) => {
@@ -61,7 +63,7 @@ export default function RootLayout({
 }>) {
   // Metadata can't be in a client component, so we keep the main export a server component.
   const metadata: Metadata = {
-    title: "Cinefolio - Movie Reviews",
+    title: "Review4it - Movie Reviews",
     description: "Your ultimate destination for movie reviews and insights.",
   };
 
@@ -80,6 +82,8 @@ export default function RootLayout({
         />
       </head>
       <body className="font-body antialiased flex flex-col min-h-screen">
+        <Analytics />
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"

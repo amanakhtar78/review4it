@@ -1,4 +1,4 @@
-# Cinefolio API Overview
+# Review4it API Overview
 
 This document explains how the API works, how authentication/authorization is handled, key endpoints, and examples for common flows like login.
 

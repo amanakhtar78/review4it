@@ -83,23 +83,21 @@ export default function Header() {
   useEffect(() => {
     setIsClient(true);
 
-    // Check login state (optional)
-    const token = localStorage.getItem("authToken");
-    setIsLoggedIn(!!token);
-
-    // Check if quiz has been seen today
+    const today = new Date().toISOString().slice(0, 10);
     const lastQuizDate = localStorage.getItem("quizSeenDate");
-    const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD
+
     if (lastQuizDate !== today) {
       setIsQuizOpen(true);
+      localStorage.setItem("quizSeenDate", today); // mark as seen immediately
     }
+
+    const token = localStorage.getItem("authToken");
+    setIsLoggedIn(!!token);
   }, []);
 
   // Handle quiz close
   const handleQuizClose = () => {
     setIsQuizOpen(false);
-    const today = new Date().toISOString().slice(0, 10);
-    localStorage.setItem("quizSeenDate", today); // mark quiz as seen today
   };
 
   return (
@@ -111,7 +109,7 @@ export default function Header() {
         >
           <Film className="h-8 w-8 text-primary" />
           <h1 className="text-2xl font-headline font-semibold text-foreground">
-            Cinefolio
+            Review4it
           </h1>
         </Link>
         <nav className="flex items-center gap-1 sm:gap-2">

@@ -1,4 +1,4 @@
-# **App Name**: Cinefolio
+# **App Name**: Review4it
 
 ## Core Features:
 

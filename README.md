@@ -1,4 +1,4 @@
-# Cinefolio - Next.js Movie Database & Admin Panel
+# Review4it - Next.js Movie Database & Admin Panel
 
 This is a Next.js application designed as a comprehensive movie database, complete with a powerful admin panel for content management. The backend is built on an MVC-like architecture using Next.js API Routes, with MongoDB as the database and Mongoose for data modeling.
 

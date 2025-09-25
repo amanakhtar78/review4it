@@ -5,8 +5,8 @@ import "../globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 
 export const metadata: Metadata = {
-  title: "Cinefolio Admin",
-  description: "Admin panel for Cinefolio movie reviews.",
+  title: "Review4it Admin",
+  description: "Admin panel for Review4it movie reviews.",
 };
 
 export default function AdminLayout({
